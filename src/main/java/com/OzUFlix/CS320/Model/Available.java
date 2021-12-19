@@ -17,7 +17,10 @@ public class Available {
     @NotNull
     private int info;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
     public int getId() {
         return id;
     }

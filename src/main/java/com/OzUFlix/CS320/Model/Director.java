@@ -21,6 +21,10 @@ public class Director {
     private String name;
 
     @OneToMany(mappedBy = "director")
+<<<<<<< HEAD
+=======
+    @NotNull
+>>>>>>> origin/main
     @Column(name = "MOVIE")
     private List<Movie> movies = new ArrayList<Movie>();
 
