@@ -1,42 +1,31 @@
-package com.OzUFlix.CS320.Model;
+package com.OzUFlix.CS320.DTO;
 
-
+import com.OzUFlix.CS320.Model.Movie;
+import com.OzUFlix.CS320.Model.Penalty;
+import com.OzUFlix.CS320.Model.Return_Movie;
+import com.OzUFlix.CS320.Model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "T_RENT")
-public class Rent {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+public class RentDTO {
     private int id;
-
-    @ManyToOne
-    @NotNull
-    @JsonIgnore
     private User user;
-
-    @ManyToOne
-    @NotNull
-    @JsonIgnore
     private Movie movie;
-
-    @NotNull
-    @Column(name = "DATE")
     private Date date;
-
-    @OneToOne
-    @JsonIgnore
     private Penalty penalty;
-
-    @OneToOne
-    @JsonIgnore
     private Return_Movie return_movie;
+
+    public RentDTO(int id, User user, Movie movie, Date date, Penalty penalty, Return_Movie return_movie) {
+        this.id = id;
+        this.user = user;
+        this.movie = movie;
+        this.date = date;
+        this.penalty = penalty;
+        this.return_movie = return_movie;
+    }
 
     public int getId() {
         return id;
