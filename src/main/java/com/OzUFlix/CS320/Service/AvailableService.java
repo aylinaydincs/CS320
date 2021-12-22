@@ -13,6 +13,7 @@ public class AvailableService {
     AvailableRepository availableRepository;
 
     public Available save(Available available){ return availableRepository.save(available); }
+    //save feature
 
     public List<Available> findAll(){ return availableRepository.findAll();}
 
