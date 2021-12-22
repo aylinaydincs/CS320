@@ -1,5 +1,6 @@
-package com.OzUFlix.CS320.Model;
+package com.OzUFlix.CS320.DTO;
 
+import com.OzUFlix.CS320.Model.Movie;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
@@ -7,22 +8,16 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "T_AVAILABLE")
-public class Available {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+public class TopicDTO {
     private int id;
-
-    @Column(name = "INFO", columnDefinition = "integer default '1'")
-    @NotNull
-    private int info;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "available")
+    private String name;
     private List<Movie> movies = new ArrayList<Movie>();
+
+    public TopicDTO(int id, String name, List<Movie> movies) {
+        this.id = id;
+        this.name = name;
+        this.movies = movies;
+    }
 
     public int getId() {
         return id;
@@ -32,12 +27,12 @@ public class Available {
         this.id = id;
     }
 
-    public int getInfo() {
-        return info;
+    public String getName() {
+        return name;
     }
 
-    public void setInfo(int info) {
-        this.info = info;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Movie> getMovies() {

@@ -1,5 +1,8 @@
-package com.OzUFlix.CS320.Model;
+package com.OzUFlix.CS320.DTO;
 
+import com.OzUFlix.CS320.Model.Penalty;
+import com.OzUFlix.CS320.Model.Rent;
+import com.OzUFlix.CS320.Model.Return_Movie;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
@@ -7,38 +10,24 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "T_USER")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+public class UserDTO {
     private int id;
-
-    @NotNull
-    @Column(name = "NAME", length = 80)
     private String name;
-
-    @NotNull
-    @Column(name = "PASSWORD", length = 80)
     private String password;
-
-    @NotNull
-    @Column(name = "USER_TYPE", columnDefinition = "integer default '1'") //0 is manager, 1 is customer
     private int userType;
-
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
     private List<Rent> rents = new ArrayList<Rent>();
-
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
     private List<Return_Movie> return_movies = new ArrayList<Return_Movie>();
-
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
     private List<Penalty> penalties = new ArrayList<Penalty>();
+
+    public UserDTO(int id, String name, String password, int userType, List<Rent> rents, List<Return_Movie> return_movies, List<Penalty> penalties) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.userType = userType;
+        this.rents = rents;
+        this.return_movies = return_movies;
+        this.penalties = penalties;
+    }
 
     public int getId() {
         return id;

@@ -1,5 +1,9 @@
-package com.OzUFlix.CS320.Model;
+package com.OzUFlix.CS320.DTO;
 
+import com.OzUFlix.CS320.Model.Available;
+import com.OzUFlix.CS320.Model.Director;
+import com.OzUFlix.CS320.Model.Rent;
+import com.OzUFlix.CS320.Model.Topic;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
@@ -7,37 +11,22 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "T_MOVIE")
-public class Movie {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+public class MovieDTO {
     private int id;
-
-    @NotNull
-    @Column(name = "NAME")
     private String name;
-
-    @JsonIgnore
-    @ManyToOne
-    @NotNull
     private Director director;
-
-    @JsonIgnore
-    @ManyToOne
-    @NotNull
     private Topic topic;
-
-    @JsonIgnore
-    @ManyToOne
-    @NotNull
     private Available available;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "movie")
     private List<Rent> rents = new ArrayList<Rent>();
+
+    public MovieDTO(int id, String name, Director director, Topic topic, Available available, List<Rent> rents) {
+        this.id = id;
+        this.name = name;
+        this.director = director;
+        this.topic = topic;
+        this.available = available;
+        this.rents = rents;
+    }
 
     public int getId() {
         return id;
@@ -83,7 +72,7 @@ public class Movie {
         return rents;
     }
 
-    public void setRents(List<Rent> rent) {
-        this.rents = rent;
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
     }
 }

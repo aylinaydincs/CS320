@@ -1,34 +1,25 @@
-package com.OzUFlix.CS320.Model;
+package com.OzUFlix.CS320.DTO;
 
-
+import com.OzUFlix.CS320.Model.Rent;
+import com.OzUFlix.CS320.Model.Return_Movie;
+import com.OzUFlix.CS320.Model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "T_PENALTY")
-public class Penalty {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+public class PenaltyDTO {
     private int id;
-
-    @ManyToOne
-    @NotNull
-    @JsonIgnore
     private User user;
-
-    @NotNull
-    @OneToOne
-    @JsonIgnore
     private Rent rent;
-
-    @NotNull
-    @OneToOne
-    @JsonIgnore
     private Return_Movie return_movie;
+
+    public PenaltyDTO(int id, User user, Rent rent, Return_Movie return_movie) {
+        this.id = id;
+        this.user = user;
+        this.rent = rent;
+        this.return_movie = return_movie;
+    }
 
     public int getId() {
         return id;
@@ -38,20 +29,20 @@ public class Penalty {
         this.id = id;
     }
 
-    public Rent getRent() {
-        return rent;
-    }
-
-    public void setRent(Rent rent) {
-        this.rent = rent;
-    }
-
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Rent getRent() {
+        return rent;
+    }
+
+    public void setRent(Rent rent) {
+        this.rent = rent;
     }
 
     public Return_Movie getReturn_movie() {
