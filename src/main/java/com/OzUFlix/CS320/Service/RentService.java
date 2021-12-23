@@ -1,6 +1,8 @@
 package com.OzUFlix.CS320.Service;
 
+import com.OzUFlix.CS320.DTO.PenaltyDTO;
 import com.OzUFlix.CS320.DTO.RentDTO;
+import com.OzUFlix.CS320.Model.Penalty;
 import com.OzUFlix.CS320.Model.Rent;
 import com.OzUFlix.CS320.Repository.RentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

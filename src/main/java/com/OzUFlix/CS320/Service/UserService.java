@@ -1,6 +1,8 @@
 package com.OzUFlix.CS320.Service;
 
+import com.OzUFlix.CS320.DTO.TopicDTO;
 import com.OzUFlix.CS320.DTO.UserDTO;
+import com.OzUFlix.CS320.Model.Topic;
 import com.OzUFlix.CS320.Model.User;
 import com.OzUFlix.CS320.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

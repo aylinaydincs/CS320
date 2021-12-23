@@ -1,6 +1,8 @@
 package com.OzUFlix.CS320.Service;
 
+import com.OzUFlix.CS320.DTO.RentDTO;
 import com.OzUFlix.CS320.DTO.Return_MovieDTO;
+import com.OzUFlix.CS320.Model.Rent;
 import com.OzUFlix.CS320.Model.Return_Movie;
 import com.OzUFlix.CS320.Repository.Return_MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;

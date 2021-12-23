@@ -54,5 +54,16 @@ public class MovieService {
         return movieDTOS;
     }
 
+    public List<MovieDTO> searchMovie(int movieInfo){
+        List<MovieDTO> movieDTOS = new ArrayList<>();
+
+        List<Movie> movieNames = movieRepository.findMovieByAvailable(movieInfo);
+
+        for (Movie movie : movieNames){
+            movieDTOS.add(new MovieDTO(movie.getId(), movie.getName(), movie.getDirector(),movie.getTopic(),movie.getAvailable(),movie.getRents()));
+        }
+        return movieDTOS;
+    }
+
     public void deleteById(int id){ movieRepository.deleteById(id); }
 }

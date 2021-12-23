@@ -9,5 +9,4 @@ public interface AvailableRepository extends JpaRepository<Available, Integer> {
 
     public Available findById(int id);
 
-
 }
