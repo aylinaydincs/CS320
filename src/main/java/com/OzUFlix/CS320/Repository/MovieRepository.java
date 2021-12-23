@@ -22,4 +22,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
     @Query("SELECT m FROM Movie AS m INNER JOIN m.director AS d WHERE d.name= ?1")
     public List<Movie> findMovieByDirector(String movieInfo);
 
+    @Query("SELECT m FROM Movie AS m INNER JOIN m.available AS a WHERE a.info= ?1")
+    public List<Movie> findMovieByAvailable(int movieInfo);
+
 }

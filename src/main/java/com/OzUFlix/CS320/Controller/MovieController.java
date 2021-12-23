@@ -6,6 +6,7 @@ import com.OzUFlix.CS320.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,9 +22,15 @@ public class MovieController {
     @GetMapping("/{movie-id}")
     public MovieDTO getMovieById(@PathVariable("movie-id") int id) {return movieService.findById(id); }
 
-    @GetMapping("/search/{movie-info}")
-    public List<MovieDTO> searchMovie(@PathVariable("movie-id") String movieInfo){
-        return movieService.searchMovie(movieInfo);
+    @GetMapping("/search")
+    public List<MovieDTO> searchMovie(@RequestBody String movieInfo){
+        List<MovieDTO> result = movieService.searchMovie(movieInfo);
+        try{
+            int number = Integer.parseInt(movieInfo);
+            result.addAll(movieService.searchMovie(number));
+        }catch (NumberFormatException e){
+        }
+        return result;
     }
 
     @DeleteMapping("/{movie-id}")

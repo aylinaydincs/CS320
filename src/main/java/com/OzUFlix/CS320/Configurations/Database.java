@@ -17,7 +17,7 @@ public class Database
         source.setDriverClassName("com.mysql.cj.jdbc.Driver");
         source.setUrl("jdbc:mysql://localhost:3306/cs320?serverTimezone=UTC");
         source.setUsername("root");
-        source.setPassword("12345r");
+        source.setPassword("123456");
 
         return source;
     }
