@@ -1,11 +1,13 @@
 package com.OzUFlix.CS320.Service;
 
 
+import com.OzUFlix.CS320.DTO.TopicDTO;
 import com.OzUFlix.CS320.Model.Topic;
 import com.OzUFlix.CS320.Repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,9 +17,20 @@ public class TopicService {
 
     public Topic save(Topic topic){ return topicRepository.save(topic); }
 
-    public List<Topic> findAll(){ return topicRepository.findAll();}
+    public List<TopicDTO> findAll(){
+        List<Topic> topics = topicRepository.findAll();
+        List<TopicDTO> topicDTOS = new ArrayList<>();
+        for (Topic topic: topics) {
+            topicDTOS.add(new TopicDTO(topic.getId(),topic.getName(),topic.getMovies()));
+        }
+        return topicDTOS;
+    }
 
-    public Topic findById(int id){ return topicRepository.findById(id); }
+    public TopicDTO findById(int id){
+        Topic topic = topicRepository.findById(id);
+        TopicDTO topicDTO = new TopicDTO(topic.getId(),topic.getName(),topic.getMovies());
+        return  topicDTO;
+    }
 
     public void deleteById(int id){
         topicRepository.deleteById(id);
