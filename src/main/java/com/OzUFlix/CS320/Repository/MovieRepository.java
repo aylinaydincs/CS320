@@ -13,7 +13,13 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     public Movie findById(int id);
 
-    @Query("SELECT m FROM Movie m WHERE m.available = ?1")
-    public List<Movie> searchMovie(int available);
+    @Query("SELECT m FROM Movie AS m WHERE m.name= ?1")
+    public List<Movie> findMovieByName(String movieInfo);
+
+    @Query("SELECT m FROM Movie AS m INNER JOIN m.topic AS t WHERE t.name= ?1")
+    public List<Movie> findMovieByTopic(String movieInfo);
+
+    @Query("SELECT m FROM Movie AS m INNER JOIN m.director AS d WHERE d.name= ?1")
+    public List<Movie> findMovieByDirector(String movieInfo);
 
 }
