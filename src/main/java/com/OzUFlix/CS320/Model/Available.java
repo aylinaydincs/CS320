@@ -16,7 +16,7 @@ public class Available {
     @NotNull
     private int id;
 
-    @Column(name = "INFO", columnDefinition = "integer default '1'")
+    @Column(name = "INFO")
     @NotNull
     private int info;
 
@@ -26,10 +26,6 @@ public class Available {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getInfo() {
