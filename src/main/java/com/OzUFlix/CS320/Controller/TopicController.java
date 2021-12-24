@@ -1,5 +1,6 @@
 package com.OzUFlix.CS320.Controller;
 
+import com.OzUFlix.CS320.DTO.AvailableDTO;
 import com.OzUFlix.CS320.DTO.TopicDTO;
 import com.OzUFlix.CS320.Model.Topic;
 import com.OzUFlix.CS320.Service.TopicService;
@@ -25,7 +26,12 @@ public class TopicController {
     public void deleteById(@PathVariable("topic-id") int id){ topicService.deleteById(id); }
 
     @PostMapping
-    public Topic saveUser(@RequestBody Topic topic){
+    public Topic save(@RequestBody Topic topic){
         return topicService.save(topic);
+    }
+
+    @PostMapping("/{topic-id}/movie/{movie-id}")
+    public TopicDTO saveMovie(@PathVariable("topic-id") int topicId, @PathVariable("movie-id") int movieId) {
+        return topicService.saveMovie(topicId, movieId);
     }
 }
