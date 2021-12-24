@@ -36,4 +36,13 @@ public class UserService {
     public void deleteById(int id){
         userRepository.deleteById(id);
     }
+
+    public boolean validateUser(String username, String password){
+        User user = userRepository.findUserByNameAndPassword(username, password);
+        boolean count=false;
+        if (user!=null){
+            count=true;
+        }
+        return  count;
+    }
 }
