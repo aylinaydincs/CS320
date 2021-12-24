@@ -1,11 +1,9 @@
 package com.OzUFlix.CS320.Service;
 
 import com.OzUFlix.CS320.DTO.MovieDTO;
+import com.OzUFlix.CS320.DTO.PenaltyDTO;
 import com.OzUFlix.CS320.DTO.RentDTO;
-import com.OzUFlix.CS320.Model.Available;
-import com.OzUFlix.CS320.Model.Movie;
-import com.OzUFlix.CS320.Model.Rent;
-import com.OzUFlix.CS320.Model.User;
+import com.OzUFlix.CS320.Model.*;
 import com.OzUFlix.CS320.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,12 @@
 package com.OzUFlix.CS320.Service;
 
 
+import com.OzUFlix.CS320.DTO.DirectorDTO;
+import com.OzUFlix.CS320.DTO.RentDTO;
 import com.OzUFlix.CS320.DTO.TopicDTO;
+import com.OzUFlix.CS320.Model.Director;
 import com.OzUFlix.CS320.Model.Movie;
+import com.OzUFlix.CS320.Model.Rent;
 import com.OzUFlix.CS320.Model.Topic;
 import com.OzUFlix.CS320.Repository.MovieRepository;
 import com.OzUFlix.CS320.Repository.TopicRepository;

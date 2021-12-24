@@ -1,11 +1,10 @@
 package com.OzUFlix.CS320.Service;
 
+import com.OzUFlix.CS320.DTO.MovieDTO;
 import com.OzUFlix.CS320.DTO.RentDTO;
+import com.OzUFlix.CS320.DTO.TopicDTO;
 import com.OzUFlix.CS320.DTO.UserDTO;
-import com.OzUFlix.CS320.Model.Penalty;
-import com.OzUFlix.CS320.Model.Rent;
-import com.OzUFlix.CS320.Model.Return_Movie;
-import com.OzUFlix.CS320.Model.User;
+import com.OzUFlix.CS320.Model.*;
 import com.OzUFlix.CS320.Repository.PenaltyRepository;
 import com.OzUFlix.CS320.Repository.RentRepository;
 import com.OzUFlix.CS320.Repository.Return_MovieRepository;

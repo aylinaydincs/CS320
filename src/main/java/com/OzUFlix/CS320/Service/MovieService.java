@@ -1,10 +1,8 @@
 package com.OzUFlix.CS320.Service;
 
+import com.OzUFlix.CS320.DTO.DirectorDTO;
 import com.OzUFlix.CS320.DTO.MovieDTO;
-import com.OzUFlix.CS320.Model.Available;
-import com.OzUFlix.CS320.Model.Director;
-import com.OzUFlix.CS320.Model.Movie;
-import com.OzUFlix.CS320.Model.Topic;
+import com.OzUFlix.CS320.Model.*;
 import com.OzUFlix.CS320.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
