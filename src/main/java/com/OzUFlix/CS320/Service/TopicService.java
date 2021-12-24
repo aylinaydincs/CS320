@@ -1,10 +1,14 @@
 package com.OzUFlix.CS320.Service;
 
 
+import com.OzUFlix.CS320.DTO.DirectorDTO;
 import com.OzUFlix.CS320.DTO.RentDTO;
 import com.OzUFlix.CS320.DTO.TopicDTO;
+import com.OzUFlix.CS320.Model.Director;
+import com.OzUFlix.CS320.Model.Movie;
 import com.OzUFlix.CS320.Model.Rent;
 import com.OzUFlix.CS320.Model.Topic;
+import com.OzUFlix.CS320.Repository.MovieRepository;
 import com.OzUFlix.CS320.Repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +20,9 @@ import java.util.List;
 public class TopicService {
     @Autowired
     TopicRepository topicRepository;
+
+    @Autowired
+    MovieRepository movieRepository;
 
     public Topic save(Topic topic){ return topicRepository.save(topic); }
 
@@ -37,4 +44,21 @@ public class TopicService {
     public void deleteById(int id){
         topicRepository.deleteById(id);
     }
+
+    public TopicDTO saveMovie(int topicId, int movieId){
+        Movie movie = movieRepository.findById(movieId);
+        Topic topic = topicRepository.findById(topicId);
+        List<Movie> list = new ArrayList<>();
+        list.addAll(topic.getMovies());
+        list.add(movie);
+        topic.setMovies(list);
+        topicRepository.save(topic);
+        TopicDTO topicDTO = new TopicDTO(topic.getId(),topic.getName(),topic.getMovies());
+
+        movie.setTopic(topic);
+        movieRepository.save(movie);
+
+        return  topicDTO;
+    }
+
 }
