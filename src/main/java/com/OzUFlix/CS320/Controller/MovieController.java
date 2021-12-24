@@ -1,6 +1,8 @@
 package com.OzUFlix.CS320.Controller;
 
+import com.OzUFlix.CS320.DTO.DirectorDTO;
 import com.OzUFlix.CS320.DTO.MovieDTO;
+import com.OzUFlix.CS320.Model.Available;
 import com.OzUFlix.CS320.Model.Movie;
 import com.OzUFlix.CS320.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,12 @@ public class MovieController {
     }
 
     @PostMapping
-    public Movie saveMovie(@RequestBody Movie movie){
+    public Movie save(Movie movie) {
         return movieService.save(movie);
+    }
+
+    @PostMapping("/director/{director-id}/topic/{topic-id}")
+    public MovieDTO saveMovie(@RequestBody Movie movie, @PathVariable("director-id") int directorId, @PathVariable("topic-id") int topicId) {
+        return movieService.saveMovie(movie, directorId, topicId);
     }
 }

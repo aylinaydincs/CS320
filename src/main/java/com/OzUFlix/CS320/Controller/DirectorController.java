@@ -1,5 +1,6 @@
 package com.OzUFlix.CS320.Controller;
 
+import com.OzUFlix.CS320.DTO.AvailableDTO;
 import com.OzUFlix.CS320.DTO.DirectorDTO;
 import com.OzUFlix.CS320.Model.Director;
 import com.OzUFlix.CS320.Service.DirectorService;
@@ -10,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/director")
+@RequestMapping("/directors")
 public class DirectorController {
     @Autowired
     DirectorService directorService;
@@ -21,7 +22,7 @@ public class DirectorController {
     }
 
     @GetMapping("/{director-id}")
-    public DirectorDTO getMovieById(@PathVariable("director-id") int id) {
+    public DirectorDTO getDirectorById(@PathVariable("director-id") int id) {
         return directorService.findById(id);
     }
 
@@ -31,8 +32,13 @@ public class DirectorController {
     }
 
     @PostMapping
-    public Director saveMovie(@RequestBody Director director) {
+    public Director save(@RequestBody Director director) {
         return directorService.save(director);
+    }
+
+    @PostMapping("/{director-id}/movie/{movie-id}")
+    public DirectorDTO saveDirector(@PathVariable("director-id") int directorId, @PathVariable("movie-id") int movieId) {
+        return directorService.saveMovie(directorId, movieId);
     }
 }
 

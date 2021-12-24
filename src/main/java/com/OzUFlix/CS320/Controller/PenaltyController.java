@@ -1,5 +1,6 @@
 package com.OzUFlix.CS320.Controller;
 
+import com.OzUFlix.CS320.DTO.MovieDTO;
 import com.OzUFlix.CS320.DTO.PenaltyDTO;
 import com.OzUFlix.CS320.Model.Penalty;
 import com.OzUFlix.CS320.Service.PenaltyService;
@@ -19,14 +20,15 @@ public class PenaltyController {
     public List<PenaltyDTO> findAll(){ return penaltyService.findAll(); }
 
     @GetMapping("/{penalty-id}")
-    public PenaltyDTO getUserById(@PathVariable("penalty-id") int id) {return penaltyService.findById(id); }
+    public PenaltyDTO getPenaltyById(@PathVariable("penalty-id") int id) {return penaltyService.findById(id); }
 
     @DeleteMapping("/{penalty-id}")
     public void deleteById(@PathVariable("penalty-id") int id){ penaltyService.deleteById(id); }
 
     @PostMapping
-    public Penalty saveUser(@RequestBody Penalty penalty){
+    public Penalty save(@RequestBody Penalty penalty){
         return penaltyService.save(penalty);
     }
+
 }
 
