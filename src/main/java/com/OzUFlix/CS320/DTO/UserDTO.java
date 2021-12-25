@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class UserDTO {
     private int id;
     private String name;
@@ -18,7 +19,7 @@ public class UserDTO {
     private List<Rent> rents = new ArrayList<Rent>();
     private List<Return_Movie> return_movies = new ArrayList<Return_Movie>();
     private List<Penalty> penalties = new ArrayList<Penalty>();
-
+    public UserDTO(){}
     public UserDTO(int id, String name, String password, int userType, List<Rent> rents, List<Return_Movie> return_movies, List<Penalty> penalties) {
         this.id = id;
         this.name = name;
