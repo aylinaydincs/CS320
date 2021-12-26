@@ -21,9 +21,15 @@ public class Director {
     @Column(name = "NAME", length = 80)
     private String name;
 
-    @OneToMany(mappedBy = "director")
+    @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Movie> movies = new ArrayList<Movie>();
+
+    public Director(){}
+
+    public Director(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
