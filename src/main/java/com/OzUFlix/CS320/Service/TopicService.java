@@ -54,11 +54,8 @@ public class TopicService {
         topic.setMovies(list);
         topicRepository.save(topic);
         TopicDTO topicDTO = new TopicDTO(topic.getId(),topic.getName(),topic.getMovies());
-
         movie.setTopic(topic);
         movieRepository.save(movie);
-
         return  topicDTO;
     }
-
 }
