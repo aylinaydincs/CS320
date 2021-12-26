@@ -23,9 +23,6 @@ public class UserController {
     @GetMapping("/{user-id}")
     public UserDTO getUserById(@PathVariable("user-id") int id) {return userService.findById(id); }
 
-    @GetMapping("/{user-id}/rent")
-    public List<RentDTO> getUserRent(@PathVariable("user-id") int id) {return userService.getUserRent(id); }
-
     @DeleteMapping("/{user-id}")
     public void deleteById(@PathVariable("user-id") int id){ userService.deleteById(id); }
 
@@ -50,6 +47,10 @@ public class UserController {
     public UserDTO saveUserReturnMovie(@PathVariable("user-id") int userId, @PathVariable("rent-id") int rentId, @PathVariable("rent-id") int returnMovieId) {
         return userService.saveReturnMovie(userId, rentId, returnMovieId);
     }
+
+    @GetMapping("/{user-id}/rent")
+    public List<RentDTO> getUserRent(@PathVariable("user-id") int id) {return userService.getUserRent(id); }
+
     */
 
 }

@@ -37,10 +37,11 @@ public class AvailableController {
         availableMovieService.deleteById(id);
     }
 
+    /*
     @PostMapping("/{available-id}/movie/{movie-id}")
     public AvailableDTO saveAvailableMovie(@PathVariable("available-id") int availableId,@PathVariable("movie-id") int movieId) {
         return availableMovieService.saveMovie(movieId, availableId);
     }
-
+*/
 }
 
