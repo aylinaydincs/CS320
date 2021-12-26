@@ -21,9 +21,15 @@ public class Topic {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy = "topic")
+    @OneToMany(mappedBy = "topic", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Movie> movies = new ArrayList<Movie>();
+
+    public Topic(){}
+
+    public Topic(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
