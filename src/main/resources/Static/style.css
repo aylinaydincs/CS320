@@ -93,3 +93,101 @@
     outline: none;
 }
 
+.main__btn4 {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+
+.main__search {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+.main__rent {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+.main__add {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+.main__penalty {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+
+.main__changepw {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
