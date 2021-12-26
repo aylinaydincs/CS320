@@ -12,9 +12,7 @@ public class AvailableDTO {
     private int id;
     private int info;
     private List<Movie> movies = new ArrayList<Movie>();
-    public AvailableDTO() {
 
-    }
     public AvailableDTO(int id, int info, List<Movie> movies) {
         this.id = id;
         this.info = info;
