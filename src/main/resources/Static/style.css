@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+
+.button {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #ff1900;
+    color: #fff;
+}
+
+/* Main Content CSS */
+.main {
+    background-color: #000000;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 70vh;
+    background-color: #000000;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.main__btn1 {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+
+.main__btn2 {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+
+.main__btn3 {
+    margin:auto;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: center;
+    outline: none;
+}
+
