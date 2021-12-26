@@ -21,8 +21,14 @@ public class Available {
     private int info;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "available")
+    @OneToMany(mappedBy = "available", fetch = FetchType.EAGER)
     private List<Movie> movies = new ArrayList<Movie>();
+
+    public Available(){}
+
+    public Available(int info) {
+        this.info = info;
+    }
 
     public int getId() {
         return id;
