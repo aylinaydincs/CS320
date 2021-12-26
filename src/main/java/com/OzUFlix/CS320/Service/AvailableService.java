@@ -20,7 +20,7 @@ public class AvailableService {
     MovieRepository movieRepository;
 
     public Available save(Available available){ return availableRepository.save(available);}
-
+/*
     public AvailableDTO saveMovie(int movieId, int availableId){
         Movie movie = movieRepository.findById(movieId);
         Available available = availableRepository.findById(availableId);
@@ -43,7 +43,7 @@ public class AvailableService {
 
         return  availableDTO;
     }
-
+*/
     public List<AvailableDTO> findAll(){
         List<Available> availables = availableRepository.findAll();
         List<AvailableDTO> availableDTOs = new ArrayList<AvailableDTO>();

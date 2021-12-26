@@ -56,11 +56,6 @@ public class Return_MovieService {
         return_movieRepository.save(returnMovie);
         Return_MovieDTO return_movieDTO = new Return_MovieDTO(returnMovie.getId(), returnMovie.getUser(),returnMovie.getDate(),returnMovie.getRent(),returnMovie.getPenalty());
 
-        List<Return_Movie> listUser = new ArrayList<>();
-        listUser.addAll(user.getReturn_movies());
-        listUser.add(returnMovie);
-        user.setReturn_movies(listUser);
-        userRepository.save(user);
 
         rent.setReturn_movie(returnMovie);
         rentRepository.save(rent);
