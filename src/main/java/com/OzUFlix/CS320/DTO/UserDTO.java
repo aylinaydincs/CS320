@@ -26,6 +26,8 @@ public class UserDTO {
         this.rents = rents;
         this.penalties = penalties;
     }
+    public UserDTO(){}
+
 
     public int getId() {
         return id;
