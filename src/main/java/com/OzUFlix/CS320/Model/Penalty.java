@@ -30,12 +30,16 @@ public class Penalty {
     @JsonIgnore
     private Return_Movie return_movie;
 
-    public int getId() {
-        return id;
+    public Penalty(){}
+
+    public Penalty(User user, Rent rent, Return_Movie return_movie) {
+        this.user = user;
+        this.rent = rent;
+        this.return_movie = return_movie;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public Rent getRent() {
