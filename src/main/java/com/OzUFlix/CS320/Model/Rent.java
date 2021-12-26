@@ -38,12 +38,16 @@ public class Rent {
     @JsonIgnore
     private Return_Movie return_movie;
 
-    public int getId() {
-        return id;
+    public Rent(){}
+
+    public Rent(User user, Movie movie, Date date) {
+        this.user = user;
+        this.movie = movie;
+        this.date = date;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public User getUser() {
