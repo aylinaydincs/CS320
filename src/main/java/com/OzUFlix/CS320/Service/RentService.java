@@ -70,22 +70,17 @@ public class RentService {
         listMovie.addAll(movie.getRents());
         listMovie.add(rent);
         movie.setRents(listMovie);
+        movieRepository.save(movie);
 
         Available notAvailable = availableRepository.findById(2);
         movie.setAvailable(notAvailable);
-        List<Movie> listN = notAvailable.getMovies();
-        listN.add(movie);
-        notAvailable.setMovies(listN);
+        notAvailable.getMovies().add(movie);
+        availableRepository.save(notAvailable);
 
         Available available = availableRepository.findById(1);
-        movie.setAvailable(available);
-        List<Movie> listA = available.getMovies();
-        listA.remove(movie);
-        available.setMovies(listA);
-
-        movieRepository.save(movie);
+        available.getMovies().remove(movie);
         availableRepository.save(available);
-        availableRepository.save(notAvailable);
+
 
         return  rentDTO;
     }

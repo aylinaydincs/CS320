@@ -30,21 +30,23 @@ public class UserService {
     PenaltyRepository penaltyRepository;
 
     public User save(User user){
-        user.setUserType(0);
+        if(user.getUserType()!=1){
+            user.setUserType(0);
+        }
         return userRepository.save(user); }
 
     public List<UserDTO> findAll(){
         List<User> users = userRepository.findAll();
         List<UserDTO> userDTOS = new ArrayList<>();
         for (User user: users) {
-            userDTOS.add(new UserDTO(user.getId(),user.getName(),user.getPassword(),user.getUserType(),user.getRents(),user.getReturn_movies(),user.getPenalties()));
+            userDTOS.add(new UserDTO(user.getId(),user.getName(),user.getPassword(),user.getUserType(),user.getRents(),user.getPenalties()));
         }
         return userDTOS;
     }
 
     public UserDTO findById(int id){
         User user = userRepository.findById(id);
-        UserDTO userDTO = new UserDTO(user.getId(),user.getName(),user.getPassword(),user.getUserType(),user.getRents(),user.getReturn_movies(),user.getPenalties());
+        UserDTO userDTO = new UserDTO(user.getId(),user.getName(),user.getPassword(),user.getUserType(),user.getRents(),user.getPenalties());
         return  userDTO;
     }
 
@@ -60,7 +62,7 @@ public class UserService {
         }
         return  count;
     }
-
+/*
     public UserDTO saveRent(int userId, int rentId){
         Rent rent = rentRepository.findById(rentId);
         User user = userRepository.findById(userId);
@@ -131,5 +133,5 @@ public class UserService {
         return  DTOs;
     }
 
-
+*/
 }

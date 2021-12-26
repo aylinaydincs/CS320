@@ -27,7 +27,8 @@ public class MovieService {
     @Autowired
     RentRepository rentRepository;
 
-    public Movie save(Movie movie){ return movieRepository.save(movie); }
+    public Movie save(Movie movie){
+        return movieRepository.save(movie); }
 
     public List<MovieDTO> findAll(){
         List<Movie> movies = movieRepository.findAll();
@@ -90,22 +91,13 @@ public class MovieService {
         movieRepository.save(movie);
         MovieDTO movieDTO = new MovieDTO(movie.getId(), movie.getName(), movie.getDirector(),movie.getTopic(),movie.getAvailable(),movie.getRents());
 
-        List<Movie> listDirector = new ArrayList<>();
-        listDirector.addAll(director.getMovies());
-        listDirector.add(movie);
-        director.setMovies(listDirector);
+        director.getMovies().add(movie);
         directorRepository.save(director);
 
-        List<Movie> listTopic = new ArrayList<>();
-        listTopic.addAll(topic.getMovies());
-        listTopic.add(movie);
-        topic.setMovies(listTopic);
+        topic.getMovies().add(movie);
         topicRepository.save(topic);
 
-        List<Movie> listAvailable = new ArrayList<>();
-        listAvailable.addAll(available.getMovies());
-        listAvailable.add(movie);
-        available.setMovies(listAvailable);
+        available.getMovies().add(movie);
         availableRepository.save(available);
 
         return movieDTO;
