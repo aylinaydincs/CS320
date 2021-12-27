@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootTest
 class OzUFlixApplicationTests {
 
@@ -119,7 +122,19 @@ class OzUFlixApplicationTests {
 		assertTrue(penalty.getRent()==rent);
 		assertTrue(penalty.getReturn_movie()==returnM);
 
+		List<Movie>movies=new ArrayList<>();
+		movies.add(movie);
+		available.setMovies(movies);
+		director.setMovies(movies);
+		movie.setAvailable(available);
+		List<Rent>rents=new ArrayList<>();
+		rents.add(rent);
+		movie.setRents(rents);
+		penalty.setUser(user);
 
+		//availableService.saveMovie(movie.getId(),available.getId());
+		movieService.searchMovie(1);
+		movieService.searchMovie("Nolan");
 
 
 		availableService.save(available);
@@ -148,16 +163,28 @@ class OzUFlixApplicationTests {
 		assertTrue(penaltyService.findAll()!=null);
 
 
+		assertTrue(directorService.findById(director.getId()).getId()==director.getId());
 
+		//assertTrue(availableService.findById(available.getId()).getMovies()==available.getMovies());
+		assertTrue(availableService.findById(available.getId()).getId()==available.getId());
+		//assertTrue(availableService.findById(available.getId()).getInfo()==available.getInfo());
 
-		/*assertEquals(directorService.findById(1).getId(),director.getId());
-		assertEquals(availableService.findById(1).getMovies(),available.getMovies());
-		assertTrue(availableService.findById(1).getId()==available.getId());
-		assertTrue(availableService.findById(1).getInfo()==available.getInfo());
-		assertTrue(availableService.findById(2).equals(notAvailable));
-		assertTrue(topicService.findById(1).equals(topic));
-		assertTrue(movieService.findById(1).equals(movie));
-		assertTrue(userService.findById(1).equals(manager));
+		//assertTrue(availableService.findById(notAvailable.getId()).getMovies()==notAvailable.getMovies());
+		assertTrue(availableService.findById(notAvailable.getId()).getId()==notAvailable.getId());
+		assertTrue(availableService.findById(notAvailable.getId()).getInfo()==notAvailable.getInfo());
+
+		assertTrue(topicService.findById(topic.getId()).getId()== topic.getId());
+		//assertTrue(topicService.findById(topic.getId()).getMovies()== topic.getMovies());
+		//assertTrue(topicService.findById(topic.getId()).getName()== topic.getName());
+
+		assertTrue(movieService.findById(movie.getId()).getId()== movie.getId());
+		/*assertTrue(movieService.findById(movie.getId()).getName()== movie.getName());
+		assertTrue(movieService.findById(movie.getId()).getDirector()== movie.getDirector());
+		assertTrue(movieService.findById(movie.getId()).getTopic()== movie.getTopic());
+		assertTrue(movieService.findById(movie.getId()).getAvailable()== movie.getAvailable());
+		assertTrue(movieService.findById(movie.getId()).getRents()== movie.getRents());*/
+
+		/*assertTrue(userService.findById(1).equals(manager));
 		assertTrue(userService.findById(2).equals(user));
 		assertTrue(rentService.findById(1).equals(rent));
 		assertTrue(return_movieService.findById(1).equals(returnM));
