@@ -29,8 +29,7 @@
 
 .main__container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: baseline;
     justify-self: center;
     margin: 0 auto;
     height: 70vh;
@@ -42,24 +41,9 @@
     padding-left: 50px;
 }
 
-.main__btn1 {
-    margin:auto;
-    display:block;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    background-image: linear-gradient(to top, #ff1900 40%, #ff0000 60%);
-    padding: 14px 32px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    margin-top: 2rem;
-    cursor: pointer;
-    position: center;
-    outline: none;
-}
-
-.main__btn2 {
+.main__btn1, .main__btn2 {
+    float: left;
+    display:inline-block;
     margin:auto;
     display:block;
     justify-content: center;

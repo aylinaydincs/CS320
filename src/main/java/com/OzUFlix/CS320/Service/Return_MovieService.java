@@ -83,7 +83,7 @@ public class Return_MovieService {
                 / (1000 * 60 * 60 * 24))
                 % 365;
 
-        if(difference_In_Days>20){
+        if(Math.abs(difference_In_Days)>20){
             Penalty penalty = new Penalty(user, rent, returnMovie);
 
             List<Penalty> penalties = user.getPenalties();
