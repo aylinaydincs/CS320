@@ -1,9 +1,11 @@
 package com.OzUFlix.CS320.Controller;
 
 import com.OzUFlix.CS320.DTO.UserDTO;
+import com.OzUFlix.CS320.Model.User;
 import com.OzUFlix.CS320.Service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,6 +21,7 @@ import java.util.Optional;
 import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -27,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(controllers = UserController.class)
 @ActiveProfiles("test")
 class UserControllerTest {
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -34,6 +38,7 @@ class UserControllerTest {
     private UserService userService;
 
     private List<UserDTO> userList;
+    private static final long ID = 3;
 
     @BeforeEach
     void setUp() {
@@ -55,15 +60,6 @@ class UserControllerTest {
 
     @Test
     void getUserById() throws Exception {
-        UserDTO user = new UserDTO();
-        user.setId(3);
-        user.setName("Ekin");
-        user.setPassword("123");
-        user.setUserType(0);
-        given(userService.findById(3)).willReturn(user);
-        this.mockMvc.perform(get("/users"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value(user.getName()));
 
     }
 

@@ -32,7 +32,6 @@ public class User {
     @JsonIgnore
     private List<Rent> rents = new ArrayList<Rent>();
 
-
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<Penalty> penalties = new ArrayList<Penalty>();

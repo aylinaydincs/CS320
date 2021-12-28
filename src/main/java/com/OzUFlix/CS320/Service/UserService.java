@@ -62,6 +62,24 @@ public class UserService {
         }
         return  count;
     }
+
+    public List<RentDTO> getUserRent(int userId){
+        User user = userRepository.findById(userId);
+        List<Rent> rents = new ArrayList<>();
+        if(userRepository.getUserByUsertype(userId)!=null){
+            rents = rentRepository.findAll();
+        }else{
+            rents = userRepository.getRent(userId);
+        }
+        List<RentDTO> DTOs= new ArrayList<>();
+        for (Rent rent : rents){
+            RentDTO rentDTO = new RentDTO(rent.getId(),rent.getUser(),rent.getMovie(),rent.getDate(), rent.getPenalty(),rent.getReturn_movie());
+            DTOs.add(rentDTO);
+        }
+
+        return  DTOs;
+    }
+
 /*
     public UserDTO saveRent(int userId, int rentId){
         Rent rent = rentRepository.findById(rentId);
@@ -116,22 +134,7 @@ public class UserService {
         return  userDTO;
     }
 
-    public List<RentDTO> getUserRent(int userId){
-        User user = userRepository.findById(userId);
-        List<Rent> rents = new ArrayList<>();
-        if(userRepository.getUserByUsertype(userId)!=null){
-            rents = rentRepository.findAll();
-        }else{
-            rents = userRepository.getRent(userId);
-        }
-        List<RentDTO> DTOs= new ArrayList<>();
-        for (Rent rent : rents){
-            RentDTO rentDTO = new RentDTO(rent.getId(),rent.getUser(),rent.getMovie(),rent.getDate(), rent.getPenalty(),rent.getReturn_movie());
-            DTOs.add(rentDTO);
-        }
 
-        return  DTOs;
-    }
 
 */
 }

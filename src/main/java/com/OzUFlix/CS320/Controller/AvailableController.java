@@ -24,8 +24,7 @@ public class AvailableController {
 
     @GetMapping("/{available-id}")
     public AvailableDTO getAvailableById(@PathVariable("available-id") int id) {
-        return availableMovieService.findById(id);
-    }
+        return availableMovieService.findById(id); }
 
     @PostMapping
     public Available save(Available available) {
