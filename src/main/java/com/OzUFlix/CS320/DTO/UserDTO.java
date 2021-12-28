@@ -17,6 +17,7 @@ public class UserDTO {
     private int userType;
     private List<Rent> rents = new ArrayList<Rent>();
     private List<Penalty> penalties = new ArrayList<Penalty>();
+    public UserDTO(){}
 
     public UserDTO(int id, String name, String password, int userType, List<Rent> rents,  List<Penalty> penalties) {
         this.id = id;

@@ -13,6 +13,8 @@ public class DirectorDTO {
     private String name;
     private List<Movie> movies = new ArrayList<Movie>();
 
+    public DirectorDTO(){}
+
     public DirectorDTO(int id, String name, List<Movie> movies) {
         this.id = id;
         this.name = name;
