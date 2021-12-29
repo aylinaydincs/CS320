@@ -42,7 +42,7 @@ class DirectorControllerTest {
     @Test
     void findAll() throws Exception {
         given(directorService.findAll()).willReturn(directorList);
-        this.mockMvc.perform(get("/users"))
+        this.mockMvc.perform(get("/directors"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()").value(directorList.size()));
 
